@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KnockoutJS</title>
+</head>
+<body>
+<input type="text" data-bind="textInput: firstName">
+<input type="text" data-bind="textInput: lastName">
+
+<p data-bind="text: fullName()"></p>
+
+<script src='http://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+  <script>
+    var viewModel = {
+        firstName: ko.observable(''),
+        lastName: ko.observable('')
+
+    };
+    viewModel.fullName = ko.computed(function () {
+        return this.firstName() + ' ' + this.lastName()
+    }, viewModel)
+    ko.applyBindings(viewModel);
+
+
+  </script>
+</body>
+</html>
